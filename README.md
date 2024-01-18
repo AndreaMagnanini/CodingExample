@@ -1,1 +1,1 @@
-Example project conatining a requested exercise
+<h1>Example project containing a requested programming exercise<h1/>
