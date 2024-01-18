@@ -6,7 +6,7 @@
 
     public class ValidationService
     {
-        private const string TermExtractionPattern = @"^\s*([+-]?\d+[.,]?\d*)?\s*([-+xX*/\\])\s*([+-]?\d+[,.]?\d*)\s*$";
+        private const string TermExtractionPattern = @"^\s*([+-]?\d+[,]?\d*)?\s*([-+xX*/\\])\s*([+-]?\d+[,]?\d*)\s*$";
         private readonly ITermFactory termFactory;
 
         public ValidationService(ITermFactory termFactory)
@@ -16,7 +16,7 @@
         
         public IList<ITerm> BuildExpression(string input)
         {
-            var correctInput = input.Replace(" ", string.Empty);
+            var correctInput = input.Replace(" ", string.Empty).Replace(".", ",");
             if (!Regex.IsMatch(correctInput, TermExtractionPattern))
             {
                 throw new InvalidExpressionException("Invalid Expression.");

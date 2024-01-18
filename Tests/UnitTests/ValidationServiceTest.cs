@@ -17,6 +17,10 @@
         [TestCase("33 + AA")]
         [TestCase("AA + 33")]
         [TestCase("-33*-4R")]
+        [TestCase("33..55 + 2")]
+        [TestCase("33,,55 + 2")]
+        [TestCase("3355 + 2..5")]
+        [TestCase("3355 + 2,,5")]
         public void BuildExpression_WhenExpressionIsInvalid_ThrowsException(string input)
         {
             // Given
@@ -164,16 +168,16 @@
         }
 
         [Test]
-        [TestCase("-2.0+44", "-2.0", "44", "+")]
-        [TestCase("-2.0*-33.0", "-2.0", "-33.0", "*")]
-        [TestCase("-2.0x-33.0", "-2.0", "-33.0", "x")]
-        [TestCase("-2.0X-33.0", "-2.0", "-33.0", "X")]
-        [TestCase("15.5X-3", "15.5", "-3", "X")]
-        [TestCase("15.5x-3", "15.5", "-3", "x")]
-        [TestCase("15.5*-3", "15.5", "-3", "*")]
-        [TestCase("15/-3.5", "15", "-3.5", "/")]
-        [TestCase("15\\-3.5", "15", "-3.5", "\\")]
-        [TestCase("-6.2525 -3.9", "-6.2525", "3.9", "-")]
+        [TestCase("-2.0+44", "-2,0", "44", "+")]
+        [TestCase("-2.0*-33.0", "-2,0", "-33,0", "*")]
+        [TestCase("-2.0x-33.0", "-2,0", "-33,0", "x")]
+        [TestCase("-2.0X-33.0", "-2,0", "-33,0", "X")]
+        [TestCase("15.5X-3", "15,5", "-3", "X")]
+        [TestCase("15.5x-3", "15,5", "-3", "x")]
+        [TestCase("15.5*-3", "15,5", "-3", "*")]
+        [TestCase("15/-3.5", "15", "-3,5", "/")]
+        [TestCase("15\\-3.5", "15", "-3,5", "\\")]
+        [TestCase("-6.2525 -3.9", "-6,2525", "3,9", "-")]
         public void BuildExpression_WhenExpressionContainsDecimalsWithDots_ReturnsExpression(string input, string firstTerm, string secondTerm, string operation)
         {
             // Given
@@ -201,14 +205,14 @@
         [Test]
         [TestCase("+44", "44", "+")]
         [TestCase("-4", "4", "-")]
-        [TestCase("*-33.0",  "-33.0", "*")]
-        [TestCase("x-33.0", "-33.0", "x")]
-        [TestCase("X-33.0", "-33.0", "X")]
+        [TestCase("*-33.0",  "-33,0", "*")]
+        [TestCase("x-33.0", "-33,0", "x")]
+        [TestCase("X-33.0", "-33,0", "X")]
         [TestCase("*-3", "-3", "*")]
         [TestCase("x-3", "-3", "x")]
         [TestCase("X-3", "-3", "X")]
-        [TestCase("/-3.5",  "-3.5", "/")]
-        [TestCase("\\-3.5", "-3.5", "\\")]
+        [TestCase("/-3.5",  "-3,5", "/")]
+        [TestCase("\\-3.5", "-3,5", "\\")]
         [TestCase("-3,9", "3,9", "-")]
         public void BuildExpression_WhenExpressionHasJustTwoTerms_ReturnsExpression(string input, string secondTerm, string operation)
         {
