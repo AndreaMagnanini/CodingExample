@@ -16,7 +16,9 @@
         
         public IList<ITerm> BuildExpression(string input)
         {
-            var correctInput = input.Replace(" ", string.Empty).Replace(".", ",");
+            var correctInput = input
+                .Replace(" ", string.Empty)
+                .Replace(".", ",");
             if (!Regex.IsMatch(correctInput, TermExtractionPattern))
             {
                 throw new InvalidExpressionException("Invalid Expression.");

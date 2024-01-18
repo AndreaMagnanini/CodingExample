@@ -2,19 +2,20 @@
 using Coding_Exercise_Andrea_Magnanini.Terms;
 using System.Globalization;
 
-const string usageMessage = "Welcome to this Coding Example by Andrea Magnanini\n\n" +
+const string usageMessage = "Welcome to this Coding Example by Andrea Magnanini.\n\n" +
                    "************************ USAGE *************************\n\n" +
-                   "Input any two-operands expression and get the result or\n" +
-                   "concatenate a second operand to the result of a\n" +
-                   "previous input.\n" +
-                   "Enter AC to clear data and exit to quit.\n\n" +
-                   "********************************************************";
+                   "> Input any two-operands expression and get its result.\n" +
+                   "> Concatenate a second operand to a previous result and\n" +
+                   "  get its new value.\n" +
+                   "> Enter 'ac' to clear data and 'exit' to quit.\n\n" +
+                   "********************************************************\n";
+
 Console.WriteLine(usageMessage);
 var input = string.Empty;
-var termFactory = new TermFactory();
-var validationService = new ValidationService(termFactory);
-var calculationService = new CalculationService();
 SignedNumber? previousResult = null;
+var validationService = new ValidationService(new TermFactory());
+var calculationService = new CalculationService();
+
 while (!input.Equals("exit", StringComparison.InvariantCultureIgnoreCase))
 {
     Console.Write("> ");
