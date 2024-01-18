@@ -35,6 +35,7 @@ while (!input.Equals("exit", StringComparison.InvariantCultureIgnoreCase))
                 var result = calculationService.GetResult(expression, previousResult);
                 if (double.IsInfinity(result))
                 {
+                    previousResult = null;
                     Console.WriteLine("Infinity");
                 }
                 else
