@@ -8,9 +8,10 @@
     {
         public double GetResult(IList<ITerm> expression, ISignedNumber? previousResult)
         {
-            if (expression.Count < 3 && previousResult == null)
+            if (expression.Count < 3) 
             {
-                throw new InvalidOperationException("Not enough terms were submitted - invalid expression.");
+                if(previousResult == null) throw new InvalidOperationException("Not enough terms were submitted - invalid expression.");
+                if(double.IsInfinity(previousResult.Value)) throw new InvalidOperationException("Cannot use an infinity as a term - invalid expression.");
             }
 
             var operation = expression.Count == 3

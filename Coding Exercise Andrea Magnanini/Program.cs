@@ -35,20 +35,15 @@ while (!input.Trim().Equals("exit", StringComparison.InvariantCultureIgnoreCase)
             {
                 var expression = validationService.BuildExpression(input);
                 var result = calculationService.GetResult(expression, previousResult);
-                if (double.IsInfinity(result))
-                {
-                    previousResult = null;
-                    Console.WriteLine("Infinity");
-                }
-                else
-                {
-                    previousResult = new SignedNumber(result);
-                    Console.WriteLine(result.ToString(CultureInfo.GetCultureInfo("en-US")));
-                }
+                Console.WriteLine(double.IsInfinity(result)
+                    ? result > 0 ? "Infinity" : "-Infinity"
+                    : result.ToString(CultureInfo.GetCultureInfo("en-US")));
+                previousResult = new SignedNumber(result);
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
+                previousResult = null;
             }
         }
     }
