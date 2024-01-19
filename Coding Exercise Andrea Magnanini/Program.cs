@@ -1,14 +1,15 @@
-﻿using Coding_Exercise_Andrea_Magnanini;
+﻿using System.Globalization;
+using Coding_Exercise_Andrea_Magnanini.Factories;
+using Coding_Exercise_Andrea_Magnanini.Services;
 using Coding_Exercise_Andrea_Magnanini.Terms;
-using System.Globalization;
 
 const string usageMessage = "Welcome to this Coding Example by Andrea Magnanini.\n\n" +
-                   "************************ USAGE *************************\n\n" +
-                   "> Input any two-operands expression and get its result.\n" +
-                   "> Concatenate a second operand to a previous result and\n" +
-                   "  get its new value.\n" +
-                   "> Enter 'ac' to clear data and 'exit' to quit.\n\n" +
-                   "********************************************************\n";
+                            "************************ USAGE *************************\n\n" +
+                            "> Input any two-operands expression and get its result.\n" +
+                            "> Concatenate a second operand to a previous result and\n" +
+                            "  calculate the new result.\n" +
+                            "> Enter 'ac' to clear data and 'exit' to quit.\n\n" +
+                            "********************************************************\n";
 
 Console.WriteLine(usageMessage);
 var input = string.Empty;

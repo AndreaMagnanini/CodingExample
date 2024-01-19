@@ -1,4 +1,4 @@
-﻿namespace Coding_Exercise_Andrea_Magnanini
+﻿namespace Coding_Exercise_Andrea_Magnanini.Factories
 {
     using Extensions;
     using Terms;

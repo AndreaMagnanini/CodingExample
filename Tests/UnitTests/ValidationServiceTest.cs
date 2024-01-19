@@ -1,7 +1,8 @@
 ﻿namespace Tests.UnitTests
 {
-    using Coding_Exercise_Andrea_Magnanini;
     using Coding_Exercise_Andrea_Magnanini.Extensions;
+    using Coding_Exercise_Andrea_Magnanini.Factories;
+    using Coding_Exercise_Andrea_Magnanini.Services;
     using Coding_Exercise_Andrea_Magnanini.Terms;
     using Moq;
     using NUnit.Framework;

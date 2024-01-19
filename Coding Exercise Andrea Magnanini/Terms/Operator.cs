@@ -2,7 +2,7 @@
 {
     using Enums;
 
-    public class Operator : IOperator
+    public class Operator : Term, IOperator
     {
         public Operator(OperatorTypeEnum type)
         {

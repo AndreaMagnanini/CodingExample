@@ -1,7 +1,8 @@
-﻿namespace Coding_Exercise_Andrea_Magnanini
+﻿namespace Coding_Exercise_Andrea_Magnanini.Services
 {
     using System.Data;
     using System.Text.RegularExpressions;
+    using Factories;
     using Terms;
 
     public class ValidationService
@@ -13,7 +14,7 @@
         {
             this.termFactory = termFactory;
         }
-        
+
         public IList<ITerm> BuildExpression(string input)
         {
             var correctInput = input
@@ -30,7 +31,7 @@
             return matches
                 .Skip(1)
                 .Where(m => !string.IsNullOrEmpty(m.Value))
-                .Select(group => this.termFactory.CreateTerm(group.Value))
+                .Select(group => termFactory.CreateTerm(group.Value))
                 .ToList();
         }
     }
