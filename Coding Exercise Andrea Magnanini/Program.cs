@@ -17,11 +17,11 @@ SignedNumber? previousResult = null;
 var validationService = new ValidationService(new TermFactory());
 var calculationService = new CalculationService();
 
-while (!input.Equals("exit", StringComparison.InvariantCultureIgnoreCase))
+while (!input.Trim().Equals("exit", StringComparison.InvariantCultureIgnoreCase))
 {
     Console.Write("> ");
     input = Console.ReadLine();
-    if (input!.Equals("AC", StringComparison.InvariantCultureIgnoreCase))
+    if (input!.Trim().Equals("AC", StringComparison.InvariantCultureIgnoreCase))
     {
         Console.Clear();
         Console.WriteLine(usageMessage);
@@ -29,7 +29,7 @@ while (!input.Equals("exit", StringComparison.InvariantCultureIgnoreCase))
     }
     else
     {
-        if (!input.Equals("exit", StringComparison.InvariantCultureIgnoreCase))
+        if (!input.Trim().Equals("exit", StringComparison.InvariantCultureIgnoreCase))
         {
             try
             {
